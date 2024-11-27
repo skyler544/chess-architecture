@@ -1,0 +1,54 @@
+@startuml
+package Application {
+    class ChessRulesSubsystem {
+        +4: To which squares may a rook move?
+        +8: Is white checkmated?
+        +11: Is white still allowed to castle?
+        +15: Has black already castled?
+        +21: Validate move legality
+        +23: Offer draw
+    }
+
+    class GameHistorySubsystem {
+        +17: What did the board look like four moves ago?
+        +19: What was black’s most recent move?
+        +20: How many moves is the current match old?
+        +22: Undo move
+    }
+
+    class BoardStateSubsystem {
+        +7: What is the score for white?
+        +9: Whose turn is it?
+        +13: On which square did the most recent mouse click happen?
+        +14: Which chesspiece is occupying square b2?
+    }
+}
+
+package Technical {
+    class InputSubsystem {
+        +1: On which screen position did the most recent mouse click take place?
+        +16: Which is the screen position of the most recent drop event?
+    }
+
+    class GraphicsSubsystem {
+        +3: Draw a white pawn on c4
+        +5: Draw a black dot at position (898, 266)
+        +6: Draw the following chess position
+        +12: What size is a queen displayed on screen?
+        +18: Draw an empty board
+    }
+
+    class EvaluationSubsystem {
+        +2: What is the optimal move in the following situation?
+        +10: How many points is a rook worth in scoring?
+    }
+}
+
+ChessRulesSubsystem --> BoardStateSubsystem
+ChessRulesSubsystem --> GameHistorySubsystem
+GameHistorySubsystem --> BoardStateSubsystem
+InputSubsystem --> BoardStateSubsystem
+InputSubsystem --> GraphicsSubsystem
+GraphicsSubsystem --> BoardStateSubsystem
+EvaluationSubsystem --> ChessRulesSubsystem
+@enduml
