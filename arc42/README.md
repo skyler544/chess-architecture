@@ -1,6 +1,8 @@
 **ARC42 Architecture Summary**
 =====================================
 
+**Disclaimer** This file was generated with the [llama3.2-vision](https://ollama.com/library/llama3.2-vision) model.
+
 **1. System Context**
 --------------------
 
