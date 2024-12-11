@@ -179,13 +179,15 @@ The system will be deployed on a cloud-based infrastructure (e.g., AWS or Google
 
 **5. Building Block View**
 -----------------
-**Component Diagram**
-=====================
 
 The `MateMate` chess playing application consists of several interconnected components, each responsible for a specific aspect of the system.
 
 ```mermaid
-   flowchart TB
+---
+config:
+    theme: neutral
+---
+flowchart TB
    subgraph Frontend
        ChessGraphics["Chess Graphics Subsystem<br/>[Component: JavaScript]<br/>Manages board rendering<br/>and piece visualization"]
        GameLoop["Game Loop Subsystem<br/>[Component: JavaScript]<br/>Provides user interface"]
