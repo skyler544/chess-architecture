@@ -7,6 +7,10 @@
 The `MateMate` chess playing application is designed to be played by a player using the system.
 
 ```mermaid
+---
+config:
+    theme: neutral
+___
 graph TB
     subgraph System Context
         Player(["Player"])
