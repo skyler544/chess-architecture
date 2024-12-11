@@ -60,20 +60,23 @@ package Technical {
   class GraphicsSubsystem {
     +5: Draw a black dot at position [898, 266]
   }
+
+  class PersistenceSubsystem {
+    +26: Persist a game
+    +27: Retrieve a game
+  }
 }
 
-GameLogicSubsystem <-- CurrentGameValidatorSubsystem
-CurrentGameValidatorSubsystem <-- BoardStateSubsystem
-CurrentGameValidatorSubsystem --> ChessRulesSubsystem
-GameHistorySubsystem <-- CurrentGameValidatorSubsystem
-InputSubsystem <-- ChessGameLoopSubsystem
-ChessGameLoopSubsystem --> ChessGraphicsSubsystem
-GraphicsSubsystem <-- ChessGraphicsSubsystem
-ChessGraphicsSubsystem --> BoardStateSubsystem
-AISubsystem --> CurrentGameValidatorSubsystem
 AISubsystem --> BoardStateSubsystem
-
-GameLogicSubsystem <-- GameHistorySubsystem
-GameLogicSubsystem <-- AISubsystem
-GameLogicSubsystem <-- BoardStateSubsystem
+AISubsystem --> GameLogicSubsystem
+BoardStateSubsystem --> GameLogicSubsystem
+ChessGameLoopSubsystem --> ChessGraphicsSubsystem
+ChessGameLoopSubsystem --> InputSubsystem
+ChessGraphicsSubsystem --> BoardStateSubsystem
+ChessGraphicsSubsystem --> GraphicsSubsystem
+CurrentGameValidatorSubsystem --> ChessRulesSubsystem
+CurrentGameValidatorSubsystem --> GameHistorySubsystem
+GameHistorySubsystem --> PersistenceSubsystem
+GameLogicSubsystem --> CurrentGameValidatorSubsystem
+GameLogicSubsystem --> GameHistorySubsystem
 @enduml
