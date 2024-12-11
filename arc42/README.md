@@ -43,6 +43,10 @@ The `MateMate` architecture is based on the C4 model, with the following levels:
 The containers in the `MateMate` system are:
 
 ```mermaid
+---
+config:
+    theme: neutral
+---
 graph TB
     subgraph Containers
         Player(["Player"])
@@ -62,14 +66,42 @@ graph TB
 The components in the `MateMate` system are:
 
 ```mermaid
-subgraph Components
-    Player(["Player"])
-    ChessRulesSubSystem(["Chess Rules Subsystem"])
-    InputOutputSubSystem(["Input/Output Subsystems"])
+---
+config:
+    theme: neutral
+---
+   flowchart TB
+   subgraph Frontend
+       ChessGraphics["Chess Graphics Subsystem<br/>[Component: JavaScript]<br/>Manages board rendering<br/>and piece visualization"]
+       GameLoop["Game Loop Subsystem<br/>[Component: JavaScript]<br/>Provides user interface"]
+       Graphics["Graphics Subsystem<br/>[Component: JavaScript]<br/>Basic graphics library for JavaScript"]
+       Input["Input Subsystem<br/>[Component: JavaScript]<br/>Handles mouse events<br/>and screen positions"]
+   end
 
-    Player -->|"Uses"| ChessRulesSubSystem
-    ChessRulesSubSystem -->|"Depends on"| InputOutputSubSystem
-end
+   subgraph Backend
+       AI["AI Subsystem<br/>[Component: PHP]<br/>Analyzes positions<br/>and plays chess"]
+       BoardState["Board State Subsystem<br/>[Component: PHP]<br/>Maintains current<br/>board configuration"]
+       GameLogic["Game Logic Subsystem<br/>[Component: PHP]<br/>Interface for move logic"]
+       GameValidator["Current Game Validator<br/>[Component: PHP]<br/>Validates game state<br/>and possible moves"]
+       History["Game History Subsystem<br/>[Component: PHP]<br/>Manages move history<br/>and state tracking"]
+       Persistence["Database<br/>[Component: MySQL]<br/>Persists game state /<br/>Provides match history"]
+       Rules["Chess Rules Subsystem<br/>[Component: PHP]<br/>Enforces chess rules<br/>and move validation"]
+   end
+
+   %% Component Relationships
+   AI -->|"Analyzes"| BoardState
+   AI -->|"Uses"| GameLogic
+   BoardState -->|"Uses<br/>"| GameLogic
+   ChessGraphics -->|"Draws current board"| GameLoop
+   ChessGraphics -->|"Library calls"| Graphics
+   GameLogic -->|"Consults"| GameValidator
+   GameLogic -->|"Reads/updates game history"| History
+   GameLoop -->|"Reads/updates board<br/>state"| BoardState
+   GameLoop -->|"Triggers<br/>rendering"| ChessGraphics
+   GameValidator -->|"Checks history<br/> for validation"| History
+   GameValidator -->|"Checks rules<br/> for validation"| Rules
+   History -->|"Persists / reads match history"| Persistence
+   Input -->|"Sends input<br/>events"| GameLoop
 ```
 
 **5. Class View**
@@ -78,13 +110,15 @@ end
 The classes in the `MateMate` system are:
 
 ```mermaid
-subgraph Classes
-    Player(["Player"])
-    ChessRulesClass(["Chess Rules Subsystem"])
-    InputOutputClass(["Input/Output Subsystems"])
+graph TB
+    subgraph Classes
+        Player(["Player"])
+        ChessRulesClass(["Chess Rules Subsystem"])
+        InputOutputClass(["Input/Output Subsystems"])
 
-    Player -->|"Uses"| ChessRulesClass
-    ChessRulesClass -->|"Depends on"| InputOutputClass
+        Player -->|"Uses"| ChessRulesClass
+        ChessRulesClass -->|"Depends on"| InputOutputClass
+    end
 end
 ```
 
