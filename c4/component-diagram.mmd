@@ -2,8 +2,8 @@ flowchart TB
    subgraph Frontend
        ChessGraphics["Chess Graphics Subsystem<br/>[Component: JavaScript]<br/>Manages board rendering<br/>and piece visualization"]
        GameLoop["Game Loop Subsystem<br/>[Component: JavaScript]<br/>Provides user interface"]
-       Graphics["Graphics Subsystem<br/>[Component: JavaScript]<br/>Basic graphics library for JavaScript"]
-       Input["Input Subsystem<br/>[Component: JavaScript]<br/>Handles mouse events<br/>and screen positions"]
+       Graphics["[T] Graphics Subsystem<br/>[Component: JavaScript]<br/>Basic graphics library for JavaScript"]
+       Input["[T] Input Subsystem<br/>[Component: JavaScript]<br/>Handles mouse events<br/>and screen positions"]
    end
 
    subgraph Backend
@@ -12,7 +12,7 @@ flowchart TB
        GameLogic["Game Logic Subsystem<br/>[Component: PHP]<br/>Interface for move logic"]
        GameValidator["Current Game Validator<br/>[Component: PHP]<br/>Validates game state<br/>and possible moves"]
        History["Game History Subsystem<br/>[Component: PHP]<br/>Manages move history<br/>and state tracking"]
-       Persistence["Database<br/>[Component: MySQL]<br/>Persists game state /<br/>Provides match history"]
+       Persistence["[T] Database<br/>[Component: MySQL]<br/>Persists game state /<br/>Provides match history"]
        Rules["Chess Rules Subsystem<br/>[Component: PHP]<br/>Enforces chess rules<br/>and move validation"]
    end
 
