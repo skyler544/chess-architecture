@@ -1,0 +1,11 @@
+graph TB
+    subgraph Containers
+        Player(["Player"])
+        WebApp["Frontend Web Application<br/>[Container: JavaScript]"]
+        GameEngine["Backend Game Engine<br/>[Container: PHP]"]
+        PersistenceSubsystem["Game State Database<br/>[Container: MySQL]"]
+
+        Player -->|"Uses"| WebApp
+        WebApp -->|"Makes moves /<br/>Requests updates"| GameEngine
+        GameEngine -->|"Reads / Writes<br/>game state"| PersistenceSubsystem
+    end
