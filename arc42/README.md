@@ -270,28 +270,7 @@ The `MateMate` system's runtime view depicts the interactions between components
 
 ### Runtime Sequence Diagram
 
-```plantuml
-@startuml
-participant "Frontend" as F
-participant "Web Server" as WS
-participant "Backend" as B
-participant "Database" as DB
-participant "AI Engine" as AE
-
-note overlay: User loads webpage in browser
-
-F->>WS: HTTP request for game state data
-WS->>B: Forward request to backend
-B->>DB: Retrieve game state data from database
-DB-->>B: Game state data retrieved
-B->>AE: Move generation request
-AE->>B: Generated moves received
-B->>WS: Response with updated game state
-WS->>F: Forward response to frontend
-
-note overlay: User notified of move generation result
-@enduml
-```
+![runtime-view](https://raw.githubusercontent.com/skyler544/chess-architecture/refs/heads/main/arc42/runtime-view.png)
 
 This runtime view illustrates the interactions between components during execution, highlighting the flow of data and control throughout the system.
 

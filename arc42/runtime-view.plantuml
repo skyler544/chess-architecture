@@ -1,0 +1,19 @@
+@startuml
+skinparam dpi 300
+
+participant "Frontend" as F
+participant "Web Server" as WS
+participant "Backend" as B
+participant "Database" as DB
+participant "AI Engine" as AE
+
+F->>WS: HTTP request for game state data
+WS->>B: Forward request to backend
+B->>DB: Retrieve game state data from database
+DB-->>B: Game state data retrieved
+B->>AE: Move generation request
+AE->>B: Generated moves received
+B->>WS: Response with updated game state
+WS->>F: Forward response to frontend
+
+@enduml
