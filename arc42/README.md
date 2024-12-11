@@ -26,18 +26,18 @@ graph TB
 
 The `MateMate` architecture is based on the C4 model, with the following levels:
 
-*   **Container**: The `MateMate` system consists of multiple containers, including:
-    *   Frontend Web Application (JavaScript)
-    *   Backend Game Engine (PHP)
-    *   Game State Database (MySQL)
-*   **Component**: Each container is composed of several components, such as:
-    *   Player
-    *   Chess Rules Subsystem
-    *   Input/Output Subsystems
-*   **Class**: The components are implemented using various classes, including:
-    *   `Player`
-    *   `ChessRulesSubSystem`
-    *   `InputOutputSubSystem`
+* **Container**: The `MateMate` system consists of multiple containers, including:
+    * Frontend Web Application (JavaScript)
+    * Backend Game Engine (PHP)
+    * Game State Database (MySQL)
+* **Component**: Each container is composed of several components, such as:
+    * Player
+    * Chess Rules Subsystem
+    * Input/Output Subsystems
+* **Class**: The components are implemented using various classes, including:
+    * `Player`
+    * `ChessRulesSubSystem`
+    * `InputOutputSubSystem`
 
 **3. Container View**
 ---------------------
@@ -118,39 +118,40 @@ The classes in the `MateMate` system are:
 
 The `MateMate` system is deployed using a cloud-based infrastructure, with the following components:
 
-*   Frontend Web Application (JavaScript) running on AWS S3
-*   Backend Game Engine (PHP) running on an EC2 instance
-*   Game State Database (MySQL) running on RDS
+* Frontend Web Application (JavaScript) running on the user's web browser
+* Backend Game Engine (PHP) running on an EC2 instance
+* Game State Database (MySQL) running on RDS
 
 **7. Technical Risks**
 ---------------------
 
 The `MateMate` system is designed to be scalable and fault-tolerant, but there are some technical risks that need to be addressed:
 
-*   **Database Performance**: The game state database needs to handle a large number of concurrent requests, which can impact performance.
-*   **Security**: The system needs to ensure the security of player data and prevent unauthorized access.
+* **Database Performance**: The game state database needs to handle a large number of concurrent requests, which can impact performance.
+* **Security**: The system needs to ensure the security of player data and prevent unauthorized access.
 
 **8. Non-Functional Requirements**
 --------------------------------
 
 The `MateMate` system has the following non-functional requirements:
 
-*   **Scalability**: The system needs to scale horizontally to handle a large number of players.
-*   **Availability**: The system needs to be available 24/7, with minimal downtime for maintenance.
+* **Scalability**: The system needs to scale horizontally to handle a large number of players.
+* **Availability**: The system needs to be available 24/7, with minimal downtime for maintenance.
+*
 
 **9. Architecture Decisions**
 ---------------------------
 
 The `MateMate` architecture has been designed based on the following decisions:
 
-*   **Separation of Concerns**: The system is separated into technical and application concerns, with the technical part consisting of input/output and graphics subsystems.
-*   **Container-Based Architecture**: The system uses a container-based architecture to ensure scalability and fault-tolerance.
+* **Separation of Concerns**: The system is separated into technical and application concerns, with the technical part consisting of input/output and graphics subsystems.
+* **Container-Based Architecture**: The system uses a container-based architecture to ensure scalability and fault-tolerance.
 
 **10. Roadmap**
 ----------------
 
 The `MateMate` system has the following roadmap:
 
-*   **Phase 1**: Development of the frontend web application
-*   **Phase 2**: Development of the backend game engine
-*   **Phase 3**: Deployment of the game state database and integration with other components
+* **Phase 1**: Development of the frontend web application
+* **Phase 2**: Development of the backend game engine
+* **Phase 3**: Deployment of the game state database and integration with other components
