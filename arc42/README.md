@@ -274,7 +274,7 @@ The `MateMate` system's runtime view depicts the interactions between components
 
 This runtime view illustrates the interactions between components during execution, highlighting the flow of data and control throughout the system.
 
-** 7. Deployment View**
+**7. Deployment View**
 ---------------------
 
 The `MateMate` chess playing application will be deployed on a cloud-based infrastructure to ensure scalability, reliability, and high availability.
