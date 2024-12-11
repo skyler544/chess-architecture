@@ -4,13 +4,13 @@ skinparam dpi 200
 
 package Application {
   class ChessRulesSubsystem {
+    +4: To which squares may a rook move?
     +10: How many points is a rook worth in scoring?
     +21: Validate move legality
     +24: What are the rules of chess?
   }
 
   class CurrentGameValidatorSubsystem {
-    +4: To which squares may a rook move [in the current game context]?
     +8: Is white checkmated?
     +11: Is white still allowed to castle?
     +15: Has black already castled?
@@ -29,13 +29,24 @@ package Application {
     +14: Which chesspiece is occupying square b2?
   }
 
-  class EvaluationSubsystem {
+  class AISubsystem {
     +2: What is the optimal move in the following situation?
   }
 
-  class GameLogic {
+  class GameLogicSubsystem {
     +22: Undo move
     +23: Offer draw
+  }
+
+  class ChessGameLoopSubsystem {
+    +25: Present game to user
+  }
+  
+  class ChessGraphicsSubsystem {
+    +3: Draw a white pawn on c4
+    +6: Draw the following chess position
+    +12: What size is a queen displayed on screen?
+    +18: Draw an empty board
   }
 }
 
@@ -47,20 +58,22 @@ package Technical {
   }
 
   class GraphicsSubsystem {
-    +3: Draw a white pawn on c4
     +5: Draw a black dot at position [898, 266]
-    +6: Draw the following chess position
-    +12: What size is a queen displayed on screen?
-    +18: Draw an empty board
   }
 }
 
-ChessRulesSubsystem <-- CurrentGameValidatorSubsystem
+GameLogicSubsystem <-- CurrentGameValidatorSubsystem
 CurrentGameValidatorSubsystem <-- BoardStateSubsystem
+CurrentGameValidatorSubsystem --> ChessRulesSubsystem
 GameHistorySubsystem <-- CurrentGameValidatorSubsystem
-InputSubsystem --> BoardStateSubsystem
-InputSubsystem --> GraphicsSubsystem
-GraphicsSubsystem --> BoardStateSubsystem
-EvaluationSubsystem --> CurrentGameValidatorSubsystem
-EvaluationSubsystem --> BoardStateSubsystem
+InputSubsystem <-- ChessGameLoopSubsystem
+ChessGameLoopSubsystem --> ChessGraphicsSubsystem
+GraphicsSubsystem <-- ChessGraphicsSubsystem
+ChessGraphicsSubsystem --> BoardStateSubsystem
+AISubsystem --> CurrentGameValidatorSubsystem
+AISubsystem --> BoardStateSubsystem
+
+GameLogicSubsystem <-- GameHistorySubsystem
+GameLogicSubsystem <-- AISubsystem
+GameLogicSubsystem <-- BoardStateSubsystem
 @enduml
