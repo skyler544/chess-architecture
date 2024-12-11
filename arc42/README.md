@@ -111,18 +111,7 @@ config:
 
 The classes in the `MateMate` system are:
 
-```mermaid
-graph TB
-    subgraph Classes
-        Player(["Player"])
-        ChessRulesClass(["Chess Rules Subsystem"])
-        InputOutputClass(["Input/Output Subsystems"])
-
-        Player -->|"Uses"| ChessRulesClass
-        ChessRulesClass -->|"Depends on"| InputOutputClass
-    end
-end
-```
+* TODO implement the system
 
 **6. Deployment View**
 ----------------------
