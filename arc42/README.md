@@ -8,6 +8,7 @@ The `MateMate` chess playing application is designed to be played by a player us
 
 ```mermaid
 ---
+title: System Context
 config:
     theme: neutral
 ___
