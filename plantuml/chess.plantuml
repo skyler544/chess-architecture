@@ -4,8 +4,9 @@ skinparam dpi 200
 
 package Application {
   class ChessRulesSubsystem {
-    +24: What are the rules of chess?
+    +10: How many points is a rook worth in scoring?
     +21: Validate move legality
+    +24: What are the rules of chess?
   }
 
   class CurrentGameValidatorSubsystem {
@@ -13,7 +14,6 @@ package Application {
     +8: Is white checkmated?
     +11: Is white still allowed to castle?
     +15: Has black already castled?
-    +23: Offer draw
     +25: Get list of all possible valid moves
   }
 
@@ -21,7 +21,6 @@ package Application {
     +17: What did the board look like four moves ago?
     +19: What was black’s most recent move?
     +20: How many moves is the current match old?
-    +22: Undo move
   }
 
   class BoardStateSubsystem {
@@ -29,11 +28,15 @@ package Application {
     +9: Whose turn is it?
     +14: Which chesspiece is occupying square b2?
   }
+
   class EvaluationSubsystem {
     +2: What is the optimal move in the following situation?
-    +10: How many points is a rook worth in scoring? [like weighting in graph algorithms]
   }
 
+  class GameLogic {
+    +22: Undo move
+    +23: Offer draw
+  }
 }
 
 package Technical {
